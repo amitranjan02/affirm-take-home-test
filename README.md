@@ -1,5 +1,16 @@
 # affirm
 
+
+##Prerequisites to run the code
+
+- Maven 3.8.4
+- JDK 8+
+
+##How to test
+- Build: `mvn clean package`
+- Run: `java -jar target/Affirm-1.0-SNAPSHOT.jar <folder_name>`, for example `java -jar target/Affirm-1.0-SNAPSHOT.jar data/small` 
+
+##Explanation
 1. How long did you spend working on the problem? What did you find to be the most difficult part?
 
 **Ans**. Around 5-6 hours on this assignment and most time spent were on making it modular and extensible. I found the part where I had to sort out the logic of create CompositeCovenant and then break it down into individual Covenant into max_default_likelihood or banned_state (bank based). I had to perform a proprocessing of the covenant data to achieve that feature.
