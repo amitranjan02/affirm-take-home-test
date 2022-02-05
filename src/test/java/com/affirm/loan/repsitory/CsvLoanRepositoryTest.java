@@ -1,5 +1,6 @@
 package com.affirm.loan.repsitory;
 
+import com.affirm.loan.repsitory.impl.CsvLoanRepository;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

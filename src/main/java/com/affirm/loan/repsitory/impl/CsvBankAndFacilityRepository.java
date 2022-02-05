@@ -1,8 +1,9 @@
-package com.affirm.loan.repsitory;
+package com.affirm.loan.repsitory.impl;
 
 import com.affirm.loan.core.Bank;
 import com.affirm.loan.core.Covenant;
 import com.affirm.loan.core.Facility;
+import com.affirm.loan.repsitory.BankAndFacilityRepository;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
@@ -43,7 +44,7 @@ public class CsvBankAndFacilityRepository implements BankAndFacilityRepository {
                 .amountInCents(Double.parseDouble(lines[0]))
                 .interestRate(Double.parseDouble(lines[1]))
                 .id(Integer.parseInt(lines[2]))
-                .bank(bankMap.get(Integer.parseInt(lines[2]))) //TODO bankMap and covenantSet dont need to be in member variables - they are useless beyond this point.
+                .bank(bankMap.get(Integer.parseInt(lines[3].trim()))) //TODO bankMap and covenantSet dont need to be in member variables - they are useless beyond this point.
                 .covenantSet(covenantSet)
                 .build();
     }

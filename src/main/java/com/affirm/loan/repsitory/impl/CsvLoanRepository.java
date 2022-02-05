@@ -1,6 +1,7 @@
-package com.affirm.loan.repsitory;
+package com.affirm.loan.repsitory.impl;
 
 import com.affirm.loan.core.Loan;
+import com.affirm.loan.repsitory.LoanRepository;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;

@@ -12,7 +12,7 @@ public class Facility {
     int id;
     double interestRate;
     double amountInCents;
-    int calculatedYield;
+    double calculatedYield;
 
     Bank bank;
     Set<Covenant> covenantSet;
@@ -21,12 +21,12 @@ public class Facility {
     YieldCalculator yieldCalculator = new YieldCalculator();
 
     public boolean canFund(Loan loan) {
-        return covenantSet.stream().filter(covenant -> covenant.canFund(loan, this)).count() == covenantSet.size();
+        boolean canFund = amountInCents >= loan.getAmount() && CompositeCovenant.canFund(loan, this, covenantSet);
+        return canFund;
     }
 
     public void fund(Loan loan) {
         this.amountInCents = this.amountInCents - loan.getAmount();
         this.calculatedYield += yieldCalculator.calculate(this, loan);
     }
-
 }

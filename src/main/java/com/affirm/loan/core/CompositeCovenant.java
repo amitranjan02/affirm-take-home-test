@@ -47,11 +47,20 @@ public class CompositeCovenant implements Covenant {
 
     @Override
     public boolean canFund(Loan loan, Facility facility) {
-        if (facilityCovenantMap.get(facility.getId()) != null) {
-            return facilityCovenantMap.get(facility.getId()).stream().filter(c -> c.canFund(loan, facility)).count() > 0;
-        } else if (bankCovenantMap.get(facility.getBank().getBankId()) != null) {
-            return bankCovenantMap.get(facility.getId()).stream().filter(c -> c.canFund(loan, facility)).count() > 0;
+        Set<Covenant> facilityCovenantSet = facilityCovenantMap.get(facility.getId());
+        Set<Covenant> bankCovenantSet = bankCovenantMap.get(facility.getBank().getBankId());
+        return canFund(loan, facility, facilityCovenantSet) && canFund(loan, facility, bankCovenantSet);
+    }
+
+    public static boolean canFund(Loan loan, Facility facility, Set<Covenant> covenantSet) {
+        if (covenantSet == null) {
+            return true;
         }
-        return false;
+        for (Covenant covenant : covenantSet) {
+            if (!covenant.canFund(loan, facility)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -1,4 +1,4 @@
-package com.affirm.loan.repsitory;
+package com.affirm.loan.repsitory.impl;
 
 import com.affirm.loan.core.CompositeCovenant;
 import com.affirm.loan.core.Covenant;

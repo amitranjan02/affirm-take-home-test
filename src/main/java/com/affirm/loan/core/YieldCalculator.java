@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 public class YieldCalculator {
 
-    public int calculate(Facility facility, Loan loan) {
-        return 0;
+    public double calculate(Facility facility, Loan loan) {
+        return (1 - loan.getDefaultLikelyHood()) * loan.getInterestRate() * loan.getAmount() - loan.getDefaultLikelyHood() * loan.getAmount() - facility.getInterestRate() * loan.getAmount();
     }
 }
