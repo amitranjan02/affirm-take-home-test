@@ -17,7 +17,7 @@
 
 2. How would you modify your data model or code to account for an eventual introduction of new, as-of-yet unknown types of covenants, beyond just maximum default likelihood and state restrictions? 
 
-**Ans**. The composite covenant is extensible, all we need to do is implement a new covenant type in CompositeCovenant and write its implementation. Rest all loan processing would continue work as is.
+**Ans**. The `Covanent` class is extensible and new variants can be added by imlementing the interface, A loan and be filtered through a set of `Covanent`'s by a facility.
 
 3. How would you architect your solution as a production service wherein new facilities can be introduced at arbitrary points in time. Assume these facilities become available by the finance team emailing your team and describing the addition with a new set of CSVs. 
 

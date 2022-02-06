@@ -17,7 +17,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <start-class>com.affirm.loan.driver.LoanAssignmentApplication</start-class>
+        <start-class>com.affirm.loan.main.LoanAssignmentApp</start-class>
     </properties>
 
     <dependencies>

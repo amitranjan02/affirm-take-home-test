@@ -7,7 +7,7 @@ import lombok.Data;
 @Builder
 public class Loan {
     int id;
-    int amount;
+    long amount;
     float interestRate;
     float defaultLikelyHood;
     String state;
