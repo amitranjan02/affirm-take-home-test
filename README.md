@@ -18,7 +18,7 @@
 
 #### How would you modify your data model or code to account for an eventual introduction of new, as-of-yet unknown types of covenants, beyond just maximum default likelihood and state restrictions? 
 
-**Ans**. The `Covanent` class is implemented where each Covenant type is represented on itrs own hashMap, there are two ways we can extend the model. Not so ideal, we can add more to enum and keep extending the Covenant Type; or a more scalable solution would be to create subclasses for each Covenant and then have them represented as one set of objects and each one can have their own behavior.
+**Ans**. The `Covenant` class is implemented where each Covenant type is represented on itrs own hashMap, there are two ways we can extend the model. Not so ideal, we can add more to enum and keep extending the Covenant Type; or a more scalable solution would be to create subclasses for each Covenant and then have them represented as one set of objects and each one can have their own behavior.
 
 #### How would you architect your solution as a production service wherein new facilities can be introduced at arbitrary points in time. Assume these facilities become available by the finance team emailing your team and describing the addition with a new set of CSVs. 
 
