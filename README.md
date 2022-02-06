@@ -4,16 +4,17 @@
 ##Prerequisites to run the code
 
 - Maven 3.8.4
-- JDK 8+
+- JDK 11
 
 ##How to test
 - Build: `mvn clean package`
 - Run: `java -jar target/Affirm-1.0-SNAPSHOT.jar <folder_name>`, for example `java -jar target/Affirm-1.0-SNAPSHOT.jar data/small` 
-
+ [Note: I have included a copy of inputfiles in data folder, delte it if using it against different data file]
+ 
 ##Explanation
 1. How long did you spend working on the problem? What did you find to be the most difficult part?
 
-**Ans**. Around 5-6 hours on this assignment and most time spent were on making it modular and extensible. I found the part where I had to sort out the logic of create CompositeCovenant and then break it down into individual Covenant into max_default_likelihood or banned_state (bank based). I had to perform a proprocessing of the covenant data to achieve that feature.
+**Ans**. Around 7-8 hours on this assignment and most time spent were on making it modular and extensible. I found the part where I had to sort out the logic of create CompositeCovenant and then maintain two covenant type facilityCovenant and bankCovenant. 
 
 2. How would you modify your data model or code to account for an eventual introduction of new, as-of-yet unknown types of covenants, beyond just maximum default likelihood and state restrictions? 
 
@@ -77,3 +78,9 @@ The POST is used to create a new Facility
 
 The funding status of a loan can be queried using - GET /api/v1/loan/<loan_id>/
 To get the information about a particular facility, query GET /api/v1/facilities/<facility_id>
+
+5. How might you improve your assignment algorithm if you were permitted to assign loans in batch rather than streaming? We are not looking for code here, but pseudo code or description of a revised algorithm appreciated.
+	
+Ans.
+	
+6. Discuss your solution’s runtime complexity
