@@ -41,7 +41,7 @@ public class CsvBankAndFacilityRepository implements BankAndFacilityRepository {
     private Facility mapToFacility(String[] lines) {
         return Facility
                 .builder()
-                .amountInCents(Double.parseDouble(lines[0]))
+                .amountInCents((long) Double.parseDouble(lines[0]))
                 .interestRate(Double.parseDouble(lines[1]))
                 .id(Integer.parseInt(lines[2]))
                 .bank(bankMap.get(Integer.parseInt(lines[3].trim()))) //TODO bankMap and covenantSet dont need to be in member variables - they are useless beyond this point.

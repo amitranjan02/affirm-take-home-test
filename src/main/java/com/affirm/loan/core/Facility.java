@@ -11,7 +11,7 @@ public class Facility {
 
     int id;
     double interestRate;
-    double amountInCents;
+    long amountInCents;
     double calculatedYield;
 
     Bank bank;

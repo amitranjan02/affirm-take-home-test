@@ -1,13 +1,15 @@
 package com.affirm.loan.driver;
 
-import com.affirm.loan.core.LoanAssignmentHandler;
 import com.affirm.loan.core.CsvExportableLoanAssignmentListener;
+import com.affirm.loan.core.LoanAssignmentHandler;
 import com.affirm.loan.repsitory.BankAndFacilityRepository;
 import com.affirm.loan.repsitory.LoanRepository;
 import com.affirm.loan.repsitory.impl.CsvBankAndFacilityRepository;
 import com.affirm.loan.repsitory.impl.CsvLoanRepository;
 
 import java.io.File;
+
+import static java.util.stream.Collectors.toList;
 
 public class LoanAssignmentApplication {
 
@@ -22,8 +24,8 @@ public class LoanAssignmentApplication {
 
         System.out.println("Starting loan assignments");
         LoanAssignmentHandler loanAssignmentHandler = new LoanAssignmentHandler(facilityRepository, loanAssignmentListener);
-        long count =  loanRepository.getAllLoans().stream().map(loanAssignmentHandler::assignLoan).count();
-        System.out.println("Loan assignment completed for "+count+" loans");
+        long count = loanRepository.getAllLoans().stream().map(loanAssignmentHandler::assignLoan).collect(toList()).size();
+        System.out.println("Loan assignment completed for " + count + " loans");
 
         System.out.println("Generating loan assignment and yields results");
         loanAssignmentListener.generateReport();
