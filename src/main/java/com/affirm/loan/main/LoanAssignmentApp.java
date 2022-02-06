@@ -1,4 +1,4 @@
-package com.affirm.loan.driver;
+package com.affirm.loan.main;
 
 import com.affirm.loan.core.CsvExportableLoanAssignmentListener;
 import com.affirm.loan.core.LoanAssignmentHandler;
@@ -11,7 +11,7 @@ import java.io.File;
 
 import static java.util.stream.Collectors.toList;
 
-public class LoanAssignmentApplication {
+public class LoanAssignmentApp {
 
     private static BankAndFacilityRepository facilityRepository;
     private static LoanRepository loanRepository;
@@ -35,10 +35,14 @@ public class LoanAssignmentApplication {
 
     private static void initComponents(String baseFolder) {
         System.out.println("Loading files from " + baseFolder + " folder");
-        loanAssignmentListener = new CsvExportableLoanAssignmentListener(new File(baseFolder));
+
         facilityRepository = new CsvBankAndFacilityRepository(new File(baseFolder + "/facilities.csv"),
                 new File(baseFolder + "/banks.csv"), new File(baseFolder + "/covenants.csv"));
+
         loanRepository = new CsvLoanRepository(new File(baseFolder + "/loans.csv"));
+
+        loanAssignmentListener = new CsvExportableLoanAssignmentListener(new File(baseFolder));
+
         System.out.println("Loading complete");
     }
 }

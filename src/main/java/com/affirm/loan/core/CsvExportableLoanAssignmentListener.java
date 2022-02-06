@@ -15,7 +15,7 @@ public class CsvExportableLoanAssignmentListener implements LoanAssignmentListen
 
     File reportDirectory;
     YieldCalculator yieldCalculator;
-    List<LoanAssignment> loanAssignmentList;
+    List<LoanAssignmentEvent> loanAssignmentList;
     Map<Integer, Integer> facilityYieldMap;
 
     public CsvExportableLoanAssignmentListener(File reportDirectory) {
@@ -26,7 +26,7 @@ public class CsvExportableLoanAssignmentListener implements LoanAssignmentListen
     }
 
     @Override
-    public void onLoanAssigned(LoanAssignment loanAssignment) {
+    public void onLoanAssigned(LoanAssignmentEvent loanAssignment) {
         loanAssignmentList.add(loanAssignment);
         facilityYieldMap.compute(loanAssignment.getFacility().getId(), (k, v) -> {
             double yield = yieldCalculator.calculate(loanAssignment.getFacility(), loanAssignment.getLoan());
