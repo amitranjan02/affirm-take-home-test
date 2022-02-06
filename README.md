@@ -76,7 +76,7 @@ POST api/v1/Loan
 
 **Ans**
 
-Time Compplexity:- 
+Time Complexity:- 
 	
 * F = # items in facilities.csv - I am assuming facilities are a bounded number, so it can be considered as constant. 
 * C = # items in covenants.csv - I am assuming covenants are a bounded number, so it can be considered as constant.
